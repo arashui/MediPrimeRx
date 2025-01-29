@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'pharmacy.g.dart'; // Needed for Hive type adapter
 
-@HiveType(typeId: 7) // Unique typeId for this model
+@HiveType(typeId: 3) // Unique typeId for this model
 class Pharmacy {
   @HiveField(0)
   final int id; // Unique ID for the pharmacy

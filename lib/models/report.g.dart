@@ -8,7 +8,7 @@ part of 'report.dart';
 
 class ReportAdapter extends TypeAdapter<Report> {
   @override
-  final int typeId = 8;
+  final int typeId = 5;
 
   @override
   Report read(BinaryReader reader) {

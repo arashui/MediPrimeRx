@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'report.g.dart'; // Needed for Hive type adapter
 
-@HiveType(typeId: 8) // Unique typeId for this model
+@HiveType(typeId: 5) // Unique typeId for this model
 class Report {
   @HiveField(0)
   final int reportId; // Unique ID for the report

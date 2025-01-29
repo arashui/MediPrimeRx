@@ -8,7 +8,7 @@ part of 'product.dart';
 
 class PharmacyDrugAdapter extends TypeAdapter<PharmacyDrug> {
   @override
-  final int typeId = 1;
+  final int typeId = 4;
 
   @override
   PharmacyDrug read(BinaryReader reader) {
@@ -40,20 +40,21 @@ class PharmacyDrugAdapter extends TypeAdapter<PharmacyDrug> {
       supplierContact: fields[20] as String,
       mrp: fields[21] as double,
       gst: fields[22] as double,
-      scheduleCategory: fields[23] as String,
+      scheduleCategory: fields[23] as String?,
       reorderLevel: fields[24] as int,
-      usageInstructions: fields[25] as String,
-      sideEffects: (fields[26] as List).cast<String>(),
-      contraindications: fields[27] as String,
+      usageInstructions: fields[25] as String?,
+      sideEffects: (fields[26] as List?)?.cast<String>(),
+      contraindications: fields[27] as String?,
       drugInteractions: fields[28] as String,
-      form: fields[29] as String,
+      form: fields[29] as String?,
+      medicineComposition: fields[30] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, PharmacyDrug obj) {
     writer
-      ..writeByte(30)
+      ..writeByte(31)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -113,7 +114,9 @@ class PharmacyDrugAdapter extends TypeAdapter<PharmacyDrug> {
       ..writeByte(28)
       ..write(obj.drugInteractions)
       ..writeByte(29)
-      ..write(obj.form);
+      ..write(obj.form)
+      ..writeByte(30)
+      ..write(obj.medicineComposition);
   }
 
   @override

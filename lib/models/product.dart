@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'product.g.dart'; // Needed for the Hive type adapter
 
-@HiveType(typeId: 1) // Unique typeId for this model
+@HiveType(typeId: 4) // Unique typeId for this model
 class PharmacyDrug {
   @HiveField(0)
   final int id;
@@ -74,25 +74,28 @@ class PharmacyDrug {
   final double gst;
 
   @HiveField(23)
-  final String scheduleCategory;
+  final String? scheduleCategory;
 
   @HiveField(24)
   final int reorderLevel;
 
   @HiveField(25)
-  final String usageInstructions;
+  final String? usageInstructions;
 
   @HiveField(26)
-  final List<String> sideEffects;
+  final List<String>? sideEffects;
 
   @HiveField(27)
-  final String contraindications;
+  final String? contraindications;
 
   @HiveField(28)
   final String drugInteractions;
 
   @HiveField(29)
-  final String form;
+  final String? form;
+
+  @HiveField(30)
+  final String medicineComposition;
 
   PharmacyDrug({
     required this.id,
@@ -118,13 +121,14 @@ class PharmacyDrug {
     required this.supplierContact,
     required this.mrp,
     required this.gst,
-    required this.scheduleCategory,
+    this.scheduleCategory,
     required this.reorderLevel,
-    required this.usageInstructions,
-    required this.sideEffects,
+    this.usageInstructions,
+    this.sideEffects,
     required this.contraindications,
     required this.drugInteractions,
-    required this.form,
+    this.form,
+    required this.medicineComposition
   });
 
   /// Converts a JSON map into a `PharmacyDrug` instance
@@ -162,6 +166,7 @@ class PharmacyDrug {
       contraindications: json['contraindications'],
       drugInteractions: json['drugInteractions'],
       form: json['form'],
+        medicineComposition : json['medicineComposition']
     );
   }
 
@@ -198,6 +203,7 @@ class PharmacyDrug {
       'contraindications': contraindications,
       'drugInteractions': drugInteractions,
       'form': form,
+      'medicineComposition': medicineComposition,
     };
   }
   // Method to add quantity

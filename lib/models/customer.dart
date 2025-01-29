@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'customer.g.dart'; // Needed for Hive type adapter
 
-@HiveType(typeId: 5) // Unique typeId for this model
+@HiveType(typeId: 0) // Unique typeId for this model
 class Customer {
   @HiveField(0)
   final int customerId;
