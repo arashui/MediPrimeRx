@@ -8,7 +8,8 @@ import '../Screen/medicine.dart';
 import '../Screen/report.dart';
 import '../Screen/settings.dart';
 import '../Screen/support.dart';
-import '../Screen/user_activity.dart';
+
+import '../Screen/user_activity_screen.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import '../screen/order.dart';
 import '../utils/constant/app_big_text.dart';
@@ -43,7 +44,7 @@ class SideMenuState extends State<SideMenu> {
     const Order(),
     const Account(),
     const Report(),
-    const UserActivity(),
+    const UserActivityScreen(),
     const Settings(),
     const SupportAndHelp(),
   ];
@@ -65,7 +66,7 @@ class SideMenuState extends State<SideMenu> {
           // Sidebar for desktop screens
           if (Responsive.isDesktop(context)) _buildSidebar(),
           // Main content area
-          Expanded(child: _pages[_currentIndex]),
+          _pages[_currentIndex],
         ],
       ),
       // Drawer for mobile screens

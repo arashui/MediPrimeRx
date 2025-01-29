@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'invoice.g.dart'; // Needed for Hive type adapter
 
-@HiveType(typeId: 3) // Unique typeId for this model
+@HiveType(typeId: 1) // Unique typeId for this model
 class Invoice {
   @HiveField(0)
   final int invoiceId;
