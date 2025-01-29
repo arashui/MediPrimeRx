@@ -69,7 +69,7 @@ void main() async {
     await Hive.openBox<Invoice>('invoices');
     await Hive.openBox<OrderDrug>('menu_items');
     await Hive.openBox<Pharmacy>('invoice_items');
-    await Hive.openBox<PharmacyDrug>('invoices');
+    await Hive.openBox<PharmacyDrug>('medicine_items');
     await Hive.openBox<Report>('menu_items');
     await Hive.openBox<UserActivity>('business_Settings');
 
@@ -90,7 +90,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<CustomerProvider>(create: (_) => CustomerProvider()..customers),
-        ChangeNotifierProvider<PharmacyDrugProvider>(create: (_) => PharmacyDrugProvider()..pharmacyDrugs),
+        ChangeNotifierProvider<PharmacyDrugProvider>(create: (_) => PharmacyDrugProvider()..loadMenuItems()),
         ChangeNotifierProvider<InvoiceProvider>(create: (_) => InvoiceProvider()..invoices),
         ChangeNotifierProvider<OrderDrugProvider>(create: (_) => OrderDrugProvider()..orders),
         ChangeNotifierProvider<PharmacyProvider>(create: (_) => PharmacyProvider()),

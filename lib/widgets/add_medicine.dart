@@ -261,7 +261,7 @@ class _AddMedicineState extends State<AddMedicine> {
 
               // Get the MenuProvider from the context
               final medicineProvider = Provider.of<PharmacyDrugProvider>(context, listen: false);
-              medicineProvider.addPharmacyDrug(newMedicineItem);
+              medicineProvider.addMenuItem(newMedicineItem);
               clearFields(); // Clear fields without closing the dialog
               // Get.back();
             }
