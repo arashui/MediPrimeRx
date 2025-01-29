@@ -21,7 +21,7 @@ class _MedicineState extends State<Medicine> {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       final medicineProvider = Provider.of<PharmacyDrugProvider>(context, listen: false);
-      medicineProvider.pharmacyDrugs;
+      medicineProvider.loadMenuItems();
     });
   }
 
@@ -84,15 +84,15 @@ class _MedicineState extends State<Medicine> {
                   ),
                   SizedBox(height: defaultPadding),
                   Consumer<PharmacyDrugProvider>(
-                    builder: (context, menuProvider, _) {
-                      final medicineItems = menuProvider.pharmacyDrugs.where((item) {
-                        final itemName = item.name.toLowerCase();
-                        return itemName.contains(searchQuery.toLowerCase());
-                      }).toList();
+                    builder: (context, pharmacyDrugProvider, _) {
+                      // final medicineItems = pharmacyDrugProvider.loadMenuItems.where((item) {
+                      //   final itemName = item.name.toLowerCase();
+                      //   return itemName.contains(searchQuery.toLowerCase());
+                      // }).toList();
 
-                      if (medicineItems.isEmpty) {
-                        return Center(child: Text("No Services/Items available"));
-                      }
+                      // if (medicineItems.isEmpty) {
+                      //   return Center(child: Text("No Services/Items available"));
+                      // }
 return Container();
                       // return SizedBox(
                       //   width: double.infinity,
